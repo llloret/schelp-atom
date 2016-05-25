@@ -289,6 +289,26 @@
         'patterns': [
             {
                 'match': '##.*$'
+                'name': 'markup.list.numbered'
+            }
+            {
+                'include': '#modal_tags'
+            }
+        ]
+      }
+      {
+        'contentName': 'markup.list'
+        'begin': '\\b((?i:TREE)::)'
+        'beginCaptures':
+            '1':
+                'name': 'entity.name.tag.schelp'
+        'end': '\\s*(::)\\s*'
+        'endCaptures':
+            '1':
+                'name': 'entity.name.tag.schelp'
+        'patterns': [
+            {
+                'match': '##.*$'
                 'name': 'markup.list.unnumbered'
             }
             {
@@ -327,13 +347,22 @@
         'name': 'markup.other.anchor.schelp'
       }
       {
+        'begin': '\\b(?i:IMAGE)::'
+        'end': '::'
+        'name': 'markup.other.image.schelp'
+      }
+      {
+          'match' : '\\b(?i:CODE)::.*?::'
+          'name': 'markup.raw.schelp'
+      }
+      {
         'begin': '\\b(?i:CODE)::'
         'end': '::'
         'name': 'markup.raw.schelp'
       }
       {
         'begin': '\\b(?i:TELETYPE)::'
-        'end': '::'
+        'end': '\\*s::\\s*'
         'name': 'markup.raw.schelp'
       }
     ]
