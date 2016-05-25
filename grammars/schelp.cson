@@ -89,6 +89,18 @@
     'name': 'keyword.other.schelp'
   }
 
+
+
+  {
+    'match': '\\b(?i:KEYWORD):: (\\w+,\\s*)* \\w+'
+    'name': 'keyword.other.schelp'
+  }
+
+  {
+    'match': '\\b(?i:CLASSTREE)::.*$'
+    'name': 'keyword.other.schelp'
+  }
+
 #METHOD TAGS
 # inside the method definition, we can recognize other tags: argument, returns, discussion,
   {
@@ -98,7 +110,7 @@
             'name': 'storage.type.function.schelp'
         '2':
             'name': 'entity.name.function.schelp'
-    'end': '((\\bSECTION::|\\bDESCRIPTION::|\\bINSTANCEMETHODS::|\\bCLASSMETHODS::|\\bEXAMPLES::|\\bSUBSECTION::))'
+    'end': '((?i:(\\bSECTION::|\\bDESCRIPTION::|\\bINSTANCEMETHODS::|\\bCLASSMETHODS::|\\bEXAMPLES::|\\bSUBSECTION::)))'
     'endCaptures':
         '1':
             'name': 'keyword.other.schelp'
@@ -128,9 +140,6 @@
         }
     ]
   }
-
-
-
 
 # NOTES, WARNINGS and FOOTNOTES
   {
@@ -186,11 +195,21 @@
         }
     ]
   }
+
+# Mark all tags that are not recognized as illegal
+  {
+    'match': '\\b\\w+::'
+    'name': 'invalid.illegal'
+  }
+# Mark hanging end tags
+  {
+    'match': '::'
+    'name': 'invalid.illegal'
+  }
+
 ]
 
 
-
-################ PYTHON STUFF TO REMOVE ###################
 
 
 
