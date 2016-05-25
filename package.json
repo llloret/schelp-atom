@@ -1,7 +1,7 @@
 {
   "name": "schelp-syntax",
   "main": "./lib/schelp-syntax",
-  "version": "1.1.0",
+  "version": "0.5.0",
   "description": "Atom syntax highlighting for Supercollider Help files",
   "keywords": [
     "supercollider",
