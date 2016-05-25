@@ -356,13 +356,17 @@
           'name': 'markup.raw.schelp'
       }
       {
-        'begin': '\\b(?i:CODE)::'
-        'end': '::'
+        'begin': '^\\s*(?i:CODE)::'
+        'end': '^\\s*::\\s*$'
         'name': 'markup.raw.schelp'
       }
       {
-        'begin': '\\b(?i:TELETYPE)::'
-        'end': '\\*s::\\s*'
+          'match' : '\\b(?i:TELETYPE)::.*?::'
+          'name': 'markup.raw.schelp'
+      }
+      {
+        'begin': '^\\s*(?i:TELETYPE)::'
+        'end': '^\\s*::\\s*$'
         'name': 'markup.raw.schelp'
       }
     ]
