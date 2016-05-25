@@ -104,6 +104,14 @@
 #METHOD TAGS
 # inside the method definition, we can recognize other tags: argument, returns, discussion,
   {
+      'match': '\\b(?i:PRIVATE)::.*$'
+      'name': 'storage.type.private.schelp'
+  }
+  {
+      'match': '\\b(?i:COPYMETHOD)::.*$'
+      'name': 'storage.type.function.schelp'
+  }
+  {
     'begin': '\\b((?i:METHOD))::(.*)$'
     'beginCaptures':
         '1':
@@ -130,10 +138,6 @@
         {
             'match': '\\b(?i:DISCUSSION)::'
             'name': 'entity.name.section.discusson.schelp'
-        }
-        {
-            'match': '\\b(?i:PRIVATE)::'
-            'name': 'storage.type.private.schelp'
         }
         {
             'include': '$self'
