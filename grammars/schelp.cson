@@ -57,19 +57,27 @@
     'match': '\\b((?i:CLASS)::)(.*)$'
     'captures':
         '1':
-            'name': 'keyword.other.schelp'
+            'name': 'invalid.deprecated.schelp'
         '2':
             'name': 'entity.name.section.class.schelp'
   }
 
 # SECTION TAGS
   {
-    'match': '\\b(?i:SECTION)::.*$'
-    'name': 'keyword.other.schelp'
+  'match': '\\b((?i:SECTION)::)(.*)$'
+  'captures':
+      '1':
+          'name': 'keyword.other.schelp'
+      '2':
+          'name': 'entity.name.section.schelp'
   }
   {
-    'match': '\\b(?i:SUBSECTION)::.*$'
-    'name': 'keyword.other.schelp'
+  'match': '\\b((?i:SUBSECTION)::)(.*)$'
+  'captures':
+      '1':
+          'name': 'keyword.other.schelp'
+      '2':
+          'name': 'entity.name.section.schelp'
   }
 
   {
@@ -118,10 +126,13 @@
             'name': 'storage.type.function.schelp'
         '2':
             'name': 'entity.name.function.schelp'
-    'end': '((?i:(\\bSECTION::|\\bDESCRIPTION::|\\bINSTANCEMETHODS::|\\bCLASSMETHODS::|\\bEXAMPLES::|\\bSUBSECTION::)))'
+    'end': '((?i:(\\bSECTION::|\\bDESCRIPTION::|\\bINSTANCEMETHODS::|\\bCLASSMETHODS::|\\bEXAMPLES::|\\bSUBSECTION::)(.*)))'
     'endCaptures':
-        '1':
+        '2':
             'name': 'keyword.other.schelp'
+        '1':
+            'name': 'entity.name.section.schelp'
+
     'patterns': [
         {
             'match': '\\b((?i:ARGUMENT)::)(.*)$'
@@ -151,11 +162,11 @@
     'begin': '\\b((?i:NOTE)::)'
     'beginCaptures':
         '1':
-            'name': 'entity.name.tag.schelp'
+            'name': 'keyword.other.schelp'
     'end': '\\s*(::)\\s*'
     'endCaptures':
         '1':
-            'name': 'entity.name.tag.schelp'
+            'name': 'keyword.other.schelp'
     'patterns': [
         {
             'include': '#modal_tags'
@@ -171,11 +182,11 @@
     'begin': '\\b((?i:WARNING)::)'
     'beginCaptures':
         '1':
-            'name': 'entity.name.tag.schelp'
+            'name': 'keyword.other.schelp'
     'end': '\\s*(::)\\s*'
     'endCaptures':
         '1':
-            'name': 'entity.name.tag.schelp'
+            'name': 'keyword.other.schelp'
     'patterns': [
         {
             'include': '#modal_tags'
@@ -192,11 +203,11 @@
     'begin': '\\b((?i:FOOTNOTE)::)'
     'beginCaptures':
         '1':
-            'name': 'entity.name.tag.schelp'
+            'name': 'keyword.other.schelp'
     'end': '\\s*(::)\\s*'
     'endCaptures':
         '1':
-            'name': 'entity.name.tag.schelp'
+            'name': 'keyword.other.schelp'
     'patterns': [
         {
             'include': '#modal_tags'
@@ -229,11 +240,11 @@
         'begin': '\\b((?i:TABLE)::)'
         'beginCaptures':
             '1':
-                'name': 'entity.name.tag.schelp'
+                'name': 'keyword.other.schelp'
         'end': '\\s*(::)\\s*'
         'endCaptures':
             '1':
-                'name': 'entity.name.tag.schelp'
+                'name': 'keyword.other.schelp'
         'patterns': [
             {
                 'match': '##|\\|\\|'
@@ -249,11 +260,11 @@
         'begin': '\\b((?i:DEFINITIONLIST)::)'
         'beginCaptures':
             '1':
-                'name': 'entity.name.tag.schelp'
+                'name': 'keyword.other.schelp'
         'end': '\\s*(::)\\s*'
         'endCaptures':
             '1':
-                'name': 'entity.name.tag.schelp'
+                'name': 'keyword.other.schelp'
         'patterns': [
             {
                 'include': '#modal_tags'
@@ -269,11 +280,11 @@
         'begin': '\\b((?i:LIST)::)'
         'beginCaptures':
             '1':
-                'name': 'entity.name.tag.schelp'
+                'name': 'keyword.other.schelp'
         'end': '\\s*(::)\\s*'
         'endCaptures':
             '1':
-                'name': 'entity.name.tag.schelp'
+                'name': 'keyword.other.schelp'
         'patterns': [
             {
                 'match': '##'
@@ -289,11 +300,11 @@
         'begin': '\\b((?i:NUMBEREDLIST)::)'
         'beginCaptures':
             '1':
-                'name': 'entity.name.tag.schelp'
+                'name': 'keyword.other.schelp'
         'end': '\\s*(::)\\s*'
         'endCaptures':
             '1':
-                'name': 'entity.name.tag.schelp'
+                'name': 'keyword.other.schelp'
         'patterns': [
             {
                 'match': '##'
@@ -309,11 +320,11 @@
         'begin': '\\b((?i:TREE)::)'
         'beginCaptures':
             '1':
-                'name': 'entity.name.tag.schelp'
+                'name': 'keyword.other.schelp'
         'end': '\\s*(::)\\s*'
         'endCaptures':
             '1':
-                'name': 'entity.name.tag.schelp'
+                'name': 'keyword.other.schelp'
         'patterns': [
             {
                 'match': '##'
