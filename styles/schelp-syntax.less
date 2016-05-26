@@ -4,5 +4,13 @@
 // for a full listing of what's available.
 @import "ui-variables";
 
+atom-text-editor,
+atom-text-editor::shadow .line-number {
+  // Make the line number highlight light instead of dark
+  &.error-line {
+    background: mix(@background-color-error, @base-background-color, 15%);
+    color: @text-color-error;
+  }
+}
 .schelp-syntax {
 }
