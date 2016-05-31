@@ -13,11 +13,9 @@ class SymbolIndex
 
   subscribe: () ->
     atom.workspace.onDidStopChangingActivePaneItem (editor) =>
-      console.log 'editor 2: ' + editor.getPath()
       @updateGutter()
 
     atom.workspace.observeTextEditors (editor) =>
-      console.log 'editor 1: ' + editor.getPath()
       editor_disposables = new CompositeDisposable
       # Editor events
       editor_disposables.add editor.onDidChangeGrammar =>
@@ -32,10 +30,11 @@ class SymbolIndex
 
   getEditorSymbols: (editor) ->
     # Return the symbols for the given editor, rescanning the file if necessary.
-    fqn = editor.getPath()
+    if (editor)
+        fqn = editor.getPath()
 #    if not @entries[fqn]
-    @entries[fqn] = parse(fqn, editor.getGrammar(), editor.getText())
-    return @entries[fqn]
+        @entries[fqn] = parse(fqn, editor.getGrammar(), editor.getText())
+        return @entries[fqn]
 
   clearMarkers: () ->
     for marker in @markers
@@ -55,6 +54,8 @@ class SymbolIndex
     console.log 'updateGutter!!!'
     editor = atom.workspace.getActiveTextEditor()
     lines = @getEditorSymbols(editor)
+    if (!lines)
+        return
     for line,lineno in lines
         for scope in line
             console.log 'scope: ' + scope
