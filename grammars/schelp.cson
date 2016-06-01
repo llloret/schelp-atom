@@ -1,185 +1,185 @@
 'scopeName': 'source.schelp'
 'name': 'schelp'
 'fileTypes': [
-  'schelp'
+    'schelp'
 ]
 'patterns': [
-  {
-    'include': '#modal_tags'
-  }
-  {
-    'include': '#lists_tables'
-  }
-  {
-      'include': '#notes'
-  }
+    {
+        'include': '#modal_tags'
+    }
+    {
+        'include': '#lists_tables'
+    }
+    {
+        'include': '#notes'
+    }
 
 # HEADER TAGS
-  {
-    'match': '\\b((?i:TITLE)::)(.*)$'
-    'captures':
-        '1':
-            'name': 'keyword.other.schelp'
-        '2':
-            'name': 'entity.name.section.title.schelp'
-  }
-  {
-    'match': '\\b((?i:CATEGORIES)::)(.*)$'
-    'captures':
-        '1':
-            'name': 'keyword.other.schelp'
-        '2':
-            'name': 'entity.name.section.categories.schelp'
-  }
-  {
-    'match': '\\b((?i:RELATED)::)(.*)$'
-    'captures':
-        '1':
-            'name': 'keyword.other.schelp'
-        '2':
-            'name': 'entity.name.section.related.schelp'
-  }
-  {
-    'match': '\\b((?i:SUMMARY)::)(.*)$'
-    'captures':
-        '1':
-            'name': 'keyword.other.schelp'
-        '2':
-            'name': 'entity.name.section.summary.schelp'
-  }
-  {
-    'match': '\\b((?i:REDIRECT)::)(.*)$'
-    'captures':
-        '1':
-            'name': 'keyword.other.schelp'
-        '2':
-            'name': 'entity.name.section.redirect.schelp'
-  }
+    {
+        'match': '\\b((?i:TITLE)::)(.*)$'
+        'captures':
+            '1':
+                'name': 'keyword.other.schelp'
+            '2':
+                'name': 'entity.name.section.title.schelp'
+    }
+    {
+        'match': '\\b((?i:CATEGORIES)::)(.*)$'
+        'captures':
+            '1':
+                'name': 'keyword.other.schelp'
+            '2':
+                'name': 'entity.name.section.categories.schelp'
+    }
+    {
+        'match': '\\b((?i:RELATED)::)(.*)$'
+        'captures':
+            '1':
+                'name': 'keyword.other.schelp'
+            '2':
+                'name': 'entity.name.section.related.schelp'
+    }
+    {
+        'match': '\\b((?i:SUMMARY)::)(.*)$'
+        'captures':
+            '1':
+                'name': 'keyword.other.schelp'
+            '2':
+                'name': 'entity.name.section.summary.schelp'
+    }
+    {
+        'match': '\\b((?i:REDIRECT)::)(.*)$'
+        'captures':
+            '1':
+                'name': 'keyword.other.schelp'
+            '2':
+                'name': 'entity.name.section.redirect.schelp'
+    }
 # TODO mark this is deprecated?
-  {
-    'match': '\\b((?i:CLASS)::)(.*)$'
-    'captures':
-        '1':
-            'name': 'invalid.deprecated.schelp'
-        '2':
-            'name': 'entity.name.section.class.schelp'
-  }
+    {
+        'match': '\\b((?i:CLASS)::)(.*)$'
+        'captures':
+            '1':
+                'name': 'invalid.deprecated.schelp'
+            '2':
+                'name': 'entity.name.section.class.schelp'
+    }
 
 # SECTION TAGS
-  {
-  'match': '\\b((?i:SECTION)::)(.*)$'
-  'captures':
-      '1':
-          'name': 'keyword.other.section.schelp'
-      '2':
-          'name': 'entity.name.section.section.schelp'
-  }
-  {
-  'match': '\\b((?i:SUBSECTION)::)(.*)$'
-  'captures':
-      '1':
-          'name': 'keyword.other.subsection.schelp'
-      '2':
-          'name': 'entity.name.section.subsection.schelp'
-  }
+    {
+    'match': '\\b((?i:SECTION)::)(.*)$'
+    'captures':
+        '1':
+            'name': 'keyword.other.section.schelp'
+        '2':
+            'name': 'entity.name.section.section.schelp'
+    }
+    {
+    'match': '\\b((?i:SUBSECTION)::)(.*)$'
+    'captures':
+        '1':
+            'name': 'keyword.other.subsection.schelp'
+        '2':
+            'name': 'entity.name.section.subsection.schelp'
+    }
 
-  {
-    'match': '\\b(?i:DESCRIPTION)::'
-    'name': 'keyword.other.description.schelp'
-  }
-  {
-    'match': '\\b((?i:CLASSMETHODS))::'
-    'name': 'keyword.other.classmethods.schelp'
-  }
-  {
-    'match': '\\b(?i:INSTANCEMETHODS)::'
-    'name': 'keyword.other.instancemethods.schelp'
-  }
-  {
-    'match': '\\b(?i:EXAMPLES)::'
-    'name': 'keyword.other.examples.schelp'
-  }
+    {
+        'match': '\\b(?i:DESCRIPTION)::'
+        'name': 'keyword.other.description.schelp'
+    }
+    {
+        'match': '\\b((?i:CLASSMETHODS))::'
+        'name': 'keyword.other.classmethods.schelp'
+    }
+    {
+        'match': '\\b(?i:INSTANCEMETHODS)::'
+        'name': 'keyword.other.instancemethods.schelp'
+    }
+    {
+        'match': '\\b(?i:EXAMPLES)::'
+        'name': 'keyword.other.examples.schelp'
+    }
 
-  {
-    'match': '\\b(?i:KEYWORD)::\\s*(\\w+,\\s*)*\\s*\\w+$'
-    'name': 'keyword.other.keyword.schelp'
-  }
+    {
+        'match': '\\b(?i:KEYWORD)::\\s*(\\w+,\\s*)*\\s*\\w+$'
+        'name': 'keyword.other.keyword.schelp'
+    }
 
-  {
-    'match': '\\b(?i:CLASSTREE)::.*$'
-    'name': 'keyword.other.classtree.schelp'
-  }
+    {
+        'match': '\\b(?i:CLASSTREE)::.*$'
+        'name': 'keyword.other.classtree.schelp'
+    }
 
 #METHOD TAGS
 # inside the method definition, we can recognize other tags: argument, returns, discussion,
-  {
-      'match': '\\b(?i:PRIVATE)::\\s*(\\w+,\\s*)*\\s*\\w+$'
-      'name': 'storage.type.private.schelp'
-  }
-  {
-      'match': '\\b(?i:COPYMETHOD)::.*$'
-      'name': 'storage.type.function.schelp'
-  }
-  {
-    'begin': '\\b((?i:METHOD::))(.*)$'
-    'beginCaptures':
-        '1':
-            'name': 'storage.type.function.schelp'
-        '2':
-            'name': 'entity.name.function.schelp'
-    'end': '((?i:(\\bSECTION|\\bDESCRIPTION|\\bINSTANCEMETHODS|\\bCLASSMETHODS|\\bEXAMPLES|\\bSUBSECTION)::(.*)))'
-    'endCaptures':
-        '2':
-            'name': 'keyword.other.$2.schelp'
-    'patterns': [
-        {
-            'match': '\\b((?i:METHOD::))(.*)$'
-            'captures':
-                '1':
-                    'name': 'storage.type.function.schelp'
-                '2':
-                    'name': 'entity.name.function.schelp'
+    {
+        'match': '\\b(?i:PRIVATE)::\\s*(\\w+,\\s*)*\\s*\\w+$'
+        'name': 'storage.type.private.schelp'
+    }
+    {
+        'match': '\\b(?i:COPYMETHOD)::.*$'
+        'name': 'storage.type.function.schelp'
+    }
+    {
+        'begin': '\\b((?i:METHOD::))(.*)$'
+        'beginCaptures':
+            '1':
+                'name': 'storage.type.function.schelp'
+            '2':
+                'name': 'entity.name.function.schelp'
+        'end': '((?i:(\\bSECTION|\\bDESCRIPTION|\\bINSTANCEMETHODS|\\bCLASSMETHODS|\\bEXAMPLES|\\bSUBSECTION)::(.*)))'
+        'endCaptures':
+            '2':
+                'name': 'keyword.other.$2.schelp'
+        'patterns': [
+            {
+                'match': '\\b((?i:METHOD::))(.*)$'
+                'captures':
+                    '1':
+                        'name': 'storage.type.function.schelp'
+                    '2':
+                        'name': 'entity.name.function.schelp'
 
-        }
-        {
-            'match': '\\b((?i:ARGUMENT)::)(.*)$'
-            'captures':
-                '1':
-                    'name': 'storage.type.var.schelp'
-                '2':
-                    'name': 'variable.parameter.schelp'
-        }
-        {
-            'match': '\\b(?i:RETURNS)::'
-            'name': 'variable.other.schelp'
-        }
-        {
-            'match': '\\b(?i:DISCUSSION)::'
-            'name': 'entity.name.section.discusson.schelp'
-        }
-        {
-            'include': '#modal_tags'
-        }
-        {
-            'include': '#lists_tables'
-        }
-        {
-            'include': '#notes'
-        }
-    ]
-  }
+            }
+            {
+                'match': '\\b((?i:ARGUMENT)::)(.*)$'
+                'captures':
+                    '1':
+                        'name': 'storage.type.var.schelp'
+                    '2':
+                        'name': 'variable.parameter.schelp'
+            }
+            {
+                'match': '\\b(?i:RETURNS)::'
+                'name': 'variable.other.schelp'
+            }
+            {
+                'match': '\\b(?i:DISCUSSION)::'
+                'name': 'entity.name.section.discusson.schelp'
+            }
+            {
+                'include': '#modal_tags'
+            }
+            {
+                'include': '#lists_tables'
+            }
+            {
+                'include': '#notes'
+            }
+        ]
+    }
 
 
 # Mark all tags that are not recognized as illegal
-  {
-    'match': '\\b\\w+::'
-    'name': 'invalid.illegal'
-  }
+    {
+        'match': '\\b\\w+::'
+        'name': 'invalid.illegal'
+    }
 # Mark hanging end tags
-  {
-    'match': '::'
-    'name': 'invalid.illegal'
-  }
+    {
+        'match': '::'
+        'name': 'invalid.illegal'
+    }
 
 ]
 
@@ -188,221 +188,221 @@
 
 
 'repository':
-  'lists_tables':
-    'patterns': [
-      {
-        'contentName': 'markup.table'
-        'begin': '\\b((?i:TABLE)::)'
-        'beginCaptures':
-            '1':
-                'name': 'keyword.other.schelp'
-        'end': '\\s*(::)\\s*'
-        'endCaptures':
-            '1':
-                'name': 'keyword.other.schelp'
+    'lists_tables':
         'patterns': [
             {
-                'match': '##|\\|\\|'
-                'name': 'keyword.operator'
+                'contentName': 'markup.table'
+                'begin': '\\b((?i:TABLE)::)'
+                'beginCaptures':
+                    '1':
+                        'name': 'keyword.other.schelp'
+                'end': '\\s*(::)\\s*'
+                'endCaptures':
+                    '1':
+                        'name': 'keyword.other.schelp'
+                'patterns': [
+                    {
+                        'match': '##|\\|\\|'
+                        'name': 'keyword.operator'
+                    }
+                    {
+                        'include': '#modal_tags'
+                    }
+                ]
             }
             {
-                'include': '#modal_tags'
+                'contentName': 'markup.definitionlist'
+                'begin': '\\b((?i:DEFINITIONLIST)::)'
+                'beginCaptures':
+                    '1':
+                        'name': 'keyword.other.schelp'
+                'end': '\\s*(::)\\s*'
+                'endCaptures':
+                    '1':
+                        'name': 'keyword.other.schelp'
+                'patterns': [
+                    {
+                        'include': '#modal_tags'
+                    }
+                    {
+                        'match': '(##|\\|\\|)'
+                        'name': 'markup.list.unnumbered'
+                    }
+                ]
+            }
+            {
+                'contentName': 'markup.list'
+                'begin': '\\b((?i:LIST)::)'
+                'beginCaptures':
+                    '1':
+                        'name': 'keyword.other.schelp'
+                'end': '\\s*(::)\\s*'
+                'endCaptures':
+                    '1':
+                        'name': 'keyword.other.schelp'
+                'patterns': [
+                    {
+                        'match': '##'
+                        'name': 'markup.list.unnumbered'
+                    }
+                    {
+                        'include': '#modal_tags'
+                    }
+                ]
+            }
+            {
+                'contentName': 'markup.list'
+                'begin': '\\b((?i:NUMBEREDLIST)::)'
+                'beginCaptures':
+                    '1':
+                        'name': 'keyword.other.schelp'
+                'end': '\\s*(::)\\s*'
+                'endCaptures':
+                    '1':
+                        'name': 'keyword.other.schelp'
+                'patterns': [
+                    {
+                        'match': '##'
+                        'name': 'markup.list.numbered'
+                    }
+                    {
+                        'include': '#modal_tags'
+                    }
+                ]
+            }
+            {
+                'contentName': 'markup.list'
+                'begin': '\\b((?i:TREE)::)'
+                'beginCaptures':
+                    '1':
+                        'name': 'keyword.other.schelp'
+                'end': '\\s*(::)\\s*'
+                'endCaptures':
+                    '1':
+                        'name': 'keyword.other.schelp'
+                'patterns': [
+                    {
+                        'match': '##'
+                        'name': 'markup.list.unnumbered'
+                    }
+                    {
+                        'include': '#modal_tags'
+                    }
+                ]
             }
         ]
-      }
-      {
-        'contentName': 'markup.definitionlist'
-        'begin': '\\b((?i:DEFINITIONLIST)::)'
-        'beginCaptures':
-            '1':
-                'name': 'keyword.other.schelp'
-        'end': '\\s*(::)\\s*'
-        'endCaptures':
-            '1':
-                'name': 'keyword.other.schelp'
+
+    'modal_tags':
+        'patterns': [
+        # MODAL TAGS
+            {
+                'begin': '\\b(?i:LINK)::'
+                'end': '::'
+                'name': 'markup.underline.link.schelp'
+            }
+            {
+                'begin': '\\b(?i:STRONG)::'
+                'end': '::'
+                'name': 'markup.bold.schelp'
+            }
+            {
+                'begin': '\\b(?i:EMPHASIS)::'
+                'end': '::'
+                'name': 'markup.italic.schelp'
+            }
+            {
+                'begin': '\\b(?i:SOFT)::'
+                'end': '::'
+                'name': 'markup.other.soft.schelp'
+            }
+            {
+                'begin': '\\b(?i:ANCHOR)::'
+                'end': '::'
+                'name': 'markup.other.anchor.schelp'
+            }
+            {
+                'begin': '\\b(?i:IMAGE)::'
+                'end': '::'
+                'name': 'markup.other.image.schelp'
+            }
+            {
+                'match' : '\\b(?i:CODE)::.*?::'
+                'name': 'markup.raw.schelp'
+            }
+            {
+                'begin': '^\\s*(?i:CODE)::'
+                'end': '^\\s*::\\s*$'
+                'name': 'markup.raw.schelp'
+            }
+            {
+                'match' : '\\b(?i:TELETYPE)::.*?::'
+                'name': 'markup.raw.schelp'
+            }
+            {
+                'begin': '^\\s*(?i:TELETYPE)::'
+                'end': '^\\s*::\\s*$'
+                'name': 'markup.raw.schelp'
+            }
+        ]
+
+    # NOTES, WARNINGS and FOOTNOTES
+    'notes':
         'patterns': [
             {
-                'include': '#modal_tags'
+                'contentName': 'markup.note'
+                'begin': '\\b((?i:NOTE)::)'
+                'beginCaptures':
+                    '1':
+                        'name': 'keyword.other.schelp'
+                'end': '\\s*(::)\\s*'
+                'endCaptures':
+                    '1':
+                        'name': 'keyword.other.schelp'
+                'patterns': [
+                    {
+                        'include': '#modal_tags'
+                    }
+                    {
+                        'include': '#lists_tables'
+                    }
+                ]
             }
-            {
-                'match': '(##|\\|\\|)'
-                'name': 'markup.list.unnumbered'
-            }
-        ]
-      }
-      {
-        'contentName': 'markup.list'
-        'begin': '\\b((?i:LIST)::)'
-        'beginCaptures':
-            '1':
-                'name': 'keyword.other.schelp'
-        'end': '\\s*(::)\\s*'
-        'endCaptures':
-            '1':
-                'name': 'keyword.other.schelp'
-        'patterns': [
-            {
-                'match': '##'
-                'name': 'markup.list.unnumbered'
-            }
-            {
-                'include': '#modal_tags'
-            }
-        ]
-      }
-      {
-        'contentName': 'markup.list'
-        'begin': '\\b((?i:NUMBEREDLIST)::)'
-        'beginCaptures':
-            '1':
-                'name': 'keyword.other.schelp'
-        'end': '\\s*(::)\\s*'
-        'endCaptures':
-            '1':
-                'name': 'keyword.other.schelp'
-        'patterns': [
-            {
-                'match': '##'
-                'name': 'markup.list.numbered'
-            }
-            {
-                'include': '#modal_tags'
-            }
-        ]
-      }
-      {
-        'contentName': 'markup.list'
-        'begin': '\\b((?i:TREE)::)'
-        'beginCaptures':
-            '1':
-                'name': 'keyword.other.schelp'
-        'end': '\\s*(::)\\s*'
-        'endCaptures':
-            '1':
-                'name': 'keyword.other.schelp'
-        'patterns': [
-            {
-                'match': '##'
-                'name': 'markup.list.unnumbered'
-            }
-            {
-                'include': '#modal_tags'
-            }
-        ]
-      }
-    ]
 
-  'modal_tags':
-    'patterns': [
-    # MODAL TAGS
-      {
-        'begin': '\\b(?i:LINK)::'
-        'end': '::'
-        'name': 'markup.underline.link.schelp'
-      }
-      {
-        'begin': '\\b(?i:STRONG)::'
-        'end': '::'
-        'name': 'markup.bold.schelp'
-      }
-      {
-        'begin': '\\b(?i:EMPHASIS)::'
-        'end': '::'
-        'name': 'markup.italic.schelp'
-      }
-      {
-        'begin': '\\b(?i:SOFT)::'
-        'end': '::'
-        'name': 'markup.other.soft.schelp'
-      }
-      {
-        'begin': '\\b(?i:ANCHOR)::'
-        'end': '::'
-        'name': 'markup.other.anchor.schelp'
-      }
-      {
-        'begin': '\\b(?i:IMAGE)::'
-        'end': '::'
-        'name': 'markup.other.image.schelp'
-      }
-      {
-          'match' : '\\b(?i:CODE)::.*?::'
-          'name': 'markup.raw.schelp'
-      }
-      {
-        'begin': '^\\s*(?i:CODE)::'
-        'end': '^\\s*::\\s*$'
-        'name': 'markup.raw.schelp'
-      }
-      {
-          'match' : '\\b(?i:TELETYPE)::.*?::'
-          'name': 'markup.raw.schelp'
-      }
-      {
-        'begin': '^\\s*(?i:TELETYPE)::'
-        'end': '^\\s*::\\s*$'
-        'name': 'markup.raw.schelp'
-      }
-    ]
+            {
+                'contentName': 'markup.warning'
+                'begin': '\\b((?i:WARNING)::)'
+                'beginCaptures':
+                    '1':
+                        'name': 'keyword.other.schelp'
+                'end': '\\s*(::)\\s*'
+                'endCaptures':
+                    '1':
+                        'name': 'keyword.other.schelp'
+                'patterns': [
+                    {
+                        'include': '#modal_tags'
+                    }
+                    {
+                        'include': '#lists_tables'
+                    }
 
-  # NOTES, WARNINGS and FOOTNOTES
-  'notes':
-    'patterns': [
-        {
-          'contentName': 'markup.note'
-          'begin': '\\b((?i:NOTE)::)'
-          'beginCaptures':
-              '1':
-                  'name': 'keyword.other.schelp'
-          'end': '\\s*(::)\\s*'
-          'endCaptures':
-              '1':
-                  'name': 'keyword.other.schelp'
-          'patterns': [
-              {
-                  'include': '#modal_tags'
-              }
-              {
-                  'include': '#lists_tables'
-              }
-          ]
-        }
+                ]
+            }
 
-        {
-          'contentName': 'markup.warning'
-          'begin': '\\b((?i:WARNING)::)'
-          'beginCaptures':
-              '1':
-                  'name': 'keyword.other.schelp'
-          'end': '\\s*(::)\\s*'
-          'endCaptures':
-              '1':
-                  'name': 'keyword.other.schelp'
-          'patterns': [
-              {
-                  'include': '#modal_tags'
-              }
-              {
-                  'include': '#lists_tables'
-              }
-
-          ]
-        }
-
-        {
-          'contentName': 'markup.footnote'
-          'begin': '\\b((?i:FOOTNOTE)::)'
-          'beginCaptures':
-              '1':
-                  'name': 'keyword.other.schelp'
-          'end': '\\s*(::)\\s*'
-          'endCaptures':
-              '1':
-                  'name': 'keyword.other.schelp'
-          'patterns': [
-              {
-                  'include': '#modal_tags'
-              }
-          ]
-        }
-     ]
+            {
+                'contentName': 'markup.footnote'
+                'begin': '\\b((?i:FOOTNOTE)::)'
+                'beginCaptures':
+                    '1':
+                        'name': 'keyword.other.schelp'
+                'end': '\\s*(::)\\s*'
+                'endCaptures':
+                    '1':
+                        'name': 'keyword.other.schelp'
+                'patterns': [
+                    {
+                        'include': '#modal_tags'
+                    }
+                ]
+            }
+            ]

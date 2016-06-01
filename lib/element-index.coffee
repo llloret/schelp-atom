@@ -3,105 +3,100 @@
 
 module.exports =
 class SymbolIndex
-  constructor: (entries)->
-      @entries = {}
-      @markers = []
-      @subscribe()
+    constructor: (entries)->
+        @entries = {}
+        @markers = []
+        @subscribe()
 
-      @invalid_re = ///invalid///
-      @section_re = ///entity.name.section.section///
-      @title_re = ///entity.name.section.title///
+        @invalid_re = ///invalid///
+        @section_re = ///entity.name.section.section///
+        @title_re = ///entity.name.section.title///
 
-      @line_markers = {}
-
-
-
-  subscribe: () ->
-    atom.workspace.onDidStopChangingActivePaneItem (editor) =>
-      @update()
-
-    atom.workspace.observeTextEditors (editor) =>
-      editor_disposables = new CompositeDisposable
-      # Editor events
-      editor_disposables.add editor.onDidChangeGrammar =>
-        @update()
-
-      editor_disposables.add editor.onDidStopChanging =>
-        @update()
+        @line_markers = {}
 
 
-      editor_disposables.add editor.onDidDestroy ->
-        editor_disposables.dispose()
+    subscribe: () ->
+        atom.workspace.onDidStopChangingActivePaneItem (editor) =>
+            @update()
 
-   parse: (path, grammar, text) ->
+        atom.workspace.observeTextEditors (editor) =>
+            editor_disposables = new CompositeDisposable
+            # Editor events
+            editor_disposables.add editor.onDidChangeGrammar =>
+                @update()
+
+            editor_disposables.add editor.onDidStopChanging =>
+                @update()
+
+
+            editor_disposables.add editor.onDidDestroy ->
+                editor_disposables.dispose()
+
+
+    parse: (path, grammar, text) ->
         lines = grammar.tokenizeLines(text)
-
         elements = []
-
         nextIsSymbol = false
 
         for tokens, lineno in lines
-          elements.push([])
-          for token in tokens
-            if token.scopes
-              for scope in token.scopes
-                  elements[lineno].push(scope)
+            elements.push([])
+            for token in tokens
+                if token.scopes
+                    for scope in token.scopes
+                        elements[lineno].push(scope)
         elements
 
 
-
-
-  getEditorSymbols: (editor) ->
-    # Return the symbols for the given editor, rescanning the file if necessary.
-    if (editor)
-        fqn = editor.getPath()
+    getEditorSymbols: (editor) ->
+        # Return the symbols for the given editor, rescanning the file if necessary.
+        if (editor)
+            fqn = editor.getPath()
 #    if not @entries[fqn]
-        @entries[fqn] = @parse(fqn, editor.getGrammar(), editor.getText())
-        return @entries[fqn]
-
-  clearMarkers: () ->
-    for marker in @markers
-        marker.destroy()
+            @entries[fqn] = @parse(fqn, editor.getGrammar(), editor.getText())
+            return @entries[fqn]
 
 
-  updateMarkers: (editor) ->
-    @clearMarkers()
-    if (@line_markers['invalid'])
-        for lineno in @line_markers['invalid']
-            @addMarker(editor, lineno)
+    clearMarkers: () ->
+        for marker in @markers
+            marker.destroy()
 
 
-  addMarker: (editor, lineno) ->
-    marker = editor.markBufferPosition([lineno, 0], invalidate: 'never')
-    editor.decorateMarker(marker, type: 'line-number', class: 'error-line')
-    @markers.push(marker)
+    updateMarkers: (editor) ->
+        @clearMarkers()
+        if (@line_markers['invalid'])
+            for lineno in @line_markers['invalid']
+                @addMarker(editor, lineno)
 
 
+    addMarker: (editor, lineno) ->
+        marker = editor.markBufferPosition([lineno, 0], invalidate: 'never')
+        editor.decorateMarker(marker, type: 'line-number', class: 'error-line')
+        @markers.push(marker)
 
 
-  update:() ->
-    @line_markers = {}
-    console.log 'update!!!'
-    editor = atom.workspace.getActiveTextEditor()
-    lines = @getEditorSymbols(editor)
-    if (!lines)
-        return
-    for line,lineno in lines
-        for scope in line
-            console.log 'scope: ' + scope
-            if @invalid_re.test(scope)
-                if (!@line_markers['invalid'])
-                    @line_markers['invalid'] = []
-                @line_markers['invalid'].push(lineno)
+    update:() ->
+        @line_markers = {}
+        console.log 'update!!!'
+        editor = atom.workspace.getActiveTextEditor()
+        lines = @getEditorSymbols(editor)
+        if (!lines)
+            return
+        for line,lineno in lines
+            for scope in line
+                console.log 'scope: ' + scope
+                if @invalid_re.test(scope)
+                    if (!@line_markers['invalid'])
+                        @line_markers['invalid'] = []
+                    @line_markers['invalid'].push(lineno)
 
-            if @section_re.test(scope)
-                if (!@line_markers['section'])
-                    @line_markers['section'] = []
-                @line_markers['section'].push(lineno)
+                if @section_re.test(scope)
+                    if (!@line_markers['section'])
+                        @line_markers['section'] = []
+                    @line_markers['section'].push(lineno)
 
-            if @title_re.test(scope)
-                if (!@line_markers['title'])
-                    @line_markers['title'] = []
-                @line_markers['title'].push(lineno)
+                if @title_re.test(scope)
+                    if (!@line_markers['title'])
+                        @line_markers['title'] = []
+                    @line_markers['title'].push(lineno)
 
-    @updateMarkers(editor)
+        @updateMarkers(editor)
