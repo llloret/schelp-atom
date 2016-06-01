@@ -101,7 +101,7 @@
   }
 
   {
-    'match': '\\b(?i:KEYWORD)::\\s*(\\w+,\\s*)* \\w+$'
+    'match': '\\b(?i:KEYWORD)::\\s*(\\w+,\\s*)*\\s*\\w+$'
     'name': 'keyword.other.keyword.schelp'
   }
 
@@ -113,7 +113,7 @@
 #METHOD TAGS
 # inside the method definition, we can recognize other tags: argument, returns, discussion,
   {
-      'match': '\\b(?i:PRIVATE)::\\s*(\\w+,\\s*)* \\w+$'
+      'match': '\\b(?i:PRIVATE)::\\s*(\\w+,\\s*)*\\s*\\w+$'
       'name': 'storage.type.private.schelp'
   }
   {
