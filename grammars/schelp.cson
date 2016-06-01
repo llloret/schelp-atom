@@ -10,6 +10,9 @@
   {
     'include': '#lists_tables'
   }
+  {
+      'include': '#notes'
+  }
 
 # HEADER TAGS
   {
@@ -67,52 +70,50 @@
   'match': '\\b((?i:SECTION)::)(.*)$'
   'captures':
       '1':
-          'name': 'keyword.other.schelp'
+          'name': 'keyword.other.section.schelp'
       '2':
-          'name': 'entity.name.section.schelp'
+          'name': 'entity.name.section.section.schelp'
   }
   {
   'match': '\\b((?i:SUBSECTION)::)(.*)$'
   'captures':
       '1':
-          'name': 'keyword.other.schelp'
+          'name': 'keyword.other.subsection.schelp'
       '2':
-          'name': 'entity.name.section.schelp'
+          'name': 'entity.name.section.subsection.schelp'
   }
 
   {
     'match': '\\b(?i:DESCRIPTION)::'
-    'name': 'keyword.other.schelp'
+    'name': 'keyword.other.description.schelp'
   }
   {
     'match': '\\b((?i:CLASSMETHODS))::'
-    'name': 'keyword.other.schelp'
+    'name': 'keyword.other.classmethods.schelp'
   }
   {
     'match': '\\b(?i:INSTANCEMETHODS)::'
-    'name': 'keyword.other.schelp'
+    'name': 'keyword.other.instancemethods.schelp'
   }
   {
     'match': '\\b(?i:EXAMPLES)::'
-    'name': 'keyword.other.schelp'
+    'name': 'keyword.other.examples.schelp'
   }
 
-
-
   {
-    'match': '\\b(?i:KEYWORD):: (\\w+,\\s*)* \\w+'
-    'name': 'keyword.other.schelp'
+    'match': '\\b(?i:KEYWORD)::\\s*(\\w+,\\s*)* \\w+$'
+    'name': 'keyword.other.keyword.schelp'
   }
 
   {
     'match': '\\b(?i:CLASSTREE)::.*$'
-    'name': 'keyword.other.schelp'
+    'name': 'keyword.other.classtree.schelp'
   }
 
 #METHOD TAGS
 # inside the method definition, we can recognize other tags: argument, returns, discussion,
   {
-      'match': '\\b(?i:PRIVATE)::.*$'
+      'match': '\\b(?i:PRIVATE)::\\s*(\\w+,\\s*)* \\w+$'
       'name': 'storage.type.private.schelp'
   }
   {
@@ -120,20 +121,26 @@
       'name': 'storage.type.function.schelp'
   }
   {
-    'begin': '\\b((?i:METHOD))::(.*)$'
+    'begin': '\\b((?i:METHOD::))(.*)$'
     'beginCaptures':
         '1':
             'name': 'storage.type.function.schelp'
         '2':
             'name': 'entity.name.function.schelp'
-    'end': '((?i:(\\bSECTION::|\\bDESCRIPTION::|\\bINSTANCEMETHODS::|\\bCLASSMETHODS::|\\bEXAMPLES::|\\bSUBSECTION::)(.*)))'
+    'end': '((?i:(\\bSECTION|\\bDESCRIPTION|\\bINSTANCEMETHODS|\\bCLASSMETHODS|\\bEXAMPLES|\\bSUBSECTION)::(.*)))'
     'endCaptures':
         '2':
-            'name': 'keyword.other.schelp'
-        '1':
-            'name': 'entity.name.section.schelp'
-
+            'name': 'keyword.other.$2.schelp'
     'patterns': [
+        {
+            'match': '\\b((?i:METHOD::))(.*)$'
+            'captures':
+                '1':
+                    'name': 'storage.type.function.schelp'
+                '2':
+                    'name': 'entity.name.function.schelp'
+
+        }
         {
             'match': '\\b((?i:ARGUMENT)::)(.*)$'
             'captures':
@@ -151,69 +158,17 @@
             'name': 'entity.name.section.discusson.schelp'
         }
         {
-            'include': '$self'
-        }
-    ]
-  }
-
-# NOTES, WARNINGS and FOOTNOTES
-  {
-    'contentName': 'markup.note'
-    'begin': '\\b((?i:NOTE)::)'
-    'beginCaptures':
-        '1':
-            'name': 'keyword.other.schelp'
-    'end': '\\s*(::)\\s*'
-    'endCaptures':
-        '1':
-            'name': 'keyword.other.schelp'
-    'patterns': [
-        {
             'include': '#modal_tags'
         }
         {
             'include': '#lists_tables'
         }
-    ]
-  }
-
-  {
-    'contentName': 'markup.warning'
-    'begin': '\\b((?i:WARNING)::)'
-    'beginCaptures':
-        '1':
-            'name': 'keyword.other.schelp'
-    'end': '\\s*(::)\\s*'
-    'endCaptures':
-        '1':
-            'name': 'keyword.other.schelp'
-    'patterns': [
         {
-            'include': '#modal_tags'
-        }
-        {
-            'include': '#lists_tables'
-        }
-
-    ]
-  }
-
-  {
-    'contentName': 'markup.footnote'
-    'begin': '\\b((?i:FOOTNOTE)::)'
-    'beginCaptures':
-        '1':
-            'name': 'keyword.other.schelp'
-    'end': '\\s*(::)\\s*'
-    'endCaptures':
-        '1':
-            'name': 'keyword.other.schelp'
-    'patterns': [
-        {
-            'include': '#modal_tags'
+            'include': '#notes'
         }
     ]
   }
+
 
 # Mark all tags that are not recognized as illegal
   {
@@ -389,3 +344,65 @@
         'name': 'markup.raw.schelp'
       }
     ]
+
+  # NOTES, WARNINGS and FOOTNOTES
+  'notes':
+    'patterns': [
+        {
+          'contentName': 'markup.note'
+          'begin': '\\b((?i:NOTE)::)'
+          'beginCaptures':
+              '1':
+                  'name': 'keyword.other.schelp'
+          'end': '\\s*(::)\\s*'
+          'endCaptures':
+              '1':
+                  'name': 'keyword.other.schelp'
+          'patterns': [
+              {
+                  'include': '#modal_tags'
+              }
+              {
+                  'include': '#lists_tables'
+              }
+          ]
+        }
+
+        {
+          'contentName': 'markup.warning'
+          'begin': '\\b((?i:WARNING)::)'
+          'beginCaptures':
+              '1':
+                  'name': 'keyword.other.schelp'
+          'end': '\\s*(::)\\s*'
+          'endCaptures':
+              '1':
+                  'name': 'keyword.other.schelp'
+          'patterns': [
+              {
+                  'include': '#modal_tags'
+              }
+              {
+                  'include': '#lists_tables'
+              }
+
+          ]
+        }
+
+        {
+          'contentName': 'markup.footnote'
+          'begin': '\\b((?i:FOOTNOTE)::)'
+          'beginCaptures':
+              '1':
+                  'name': 'keyword.other.schelp'
+          'end': '\\s*(::)\\s*'
+          'endCaptures':
+              '1':
+                  'name': 'keyword.other.schelp'
+          'patterns': [
+              {
+                  'include': '#modal_tags'
+              }
+          ]
+        }
+     ]
