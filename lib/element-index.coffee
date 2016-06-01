@@ -1,4 +1,3 @@
-parse = require './element-parser'
 {CompositeDisposable} = require 'atom'
 
 
@@ -34,12 +33,30 @@ class SymbolIndex
       editor_disposables.add editor.onDidDestroy ->
         editor_disposables.dispose()
 
+   parse: (path, grammar, text) ->
+        lines = grammar.tokenizeLines(text)
+
+        elements = []
+
+        nextIsSymbol = false
+
+        for tokens, lineno in lines
+          elements.push([])
+          for token in tokens
+            if token.scopes
+              for scope in token.scopes
+                  elements[lineno].push(scope)
+        elements
+
+
+
+
   getEditorSymbols: (editor) ->
     # Return the symbols for the given editor, rescanning the file if necessary.
     if (editor)
         fqn = editor.getPath()
 #    if not @entries[fqn]
-        @entries[fqn] = parse(fqn, editor.getGrammar(), editor.getText())
+        @entries[fqn] = @parse(fqn, editor.getGrammar(), editor.getText())
         return @entries[fqn]
 
   clearMarkers: () ->
